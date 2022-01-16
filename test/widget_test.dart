@@ -7,24 +7,22 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+//import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
 import 'package:patterns_getx/main.dart';
+import 'package:patterns_getx/pages/post_detail_page.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
+    await tester.pumpWidget(DetailPage());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+   expect(find.byType(String), findsOneWidget);
+   // expect(find.byType(GridView), findsNothing);
+  expect(find.text("OneInfo"), findsOneWidget);
+    //expect(find.text("GetX"), findsNWidgets(1));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // await tester.tap(find.byIcon(Icons.add));
+    // await tester.pump();
   });
 }

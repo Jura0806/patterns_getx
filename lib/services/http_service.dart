@@ -10,7 +10,7 @@ class Network{
 
   // http APIs //
 
-  static String API_List = "/posts";
+  static String API_List = "/posts/";
   static String API_Create = "/posts";
   static String API_Update = "/posts/"; //{id}
   static String API_Delete = "/posts/";  //{id}
@@ -84,6 +84,11 @@ class Network{
   static List<Post> parsePostList(String response){
     dynamic json = jsonDecode(response);
     var data = List<Post>.from(json.map((x) => Post.fromJson(x)));
+    return data;
+  }
+  static Post parsePost(String response){
+    dynamic json = jsonDecode(response);
+    var data = Post.fromJson(json);
     return data;
   }
 }

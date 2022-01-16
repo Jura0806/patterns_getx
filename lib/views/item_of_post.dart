@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:patterns_getx/controller/home_controller.dart';
+import 'package:patterns_getx/controller/post_detail_controller.dart';
 import 'package:patterns_getx/models/post_model.dart';
+import 'package:patterns_getx/pages/post_detail_page.dart';
 import 'package:patterns_getx/pages/update_page.dart';
 
 Widget itemOfList(HomeController controller, Post post) {
@@ -52,6 +54,14 @@ Widget itemOfList(HomeController controller, Post post) {
             }
           });
         },
+      ),
+      IconSlideAction(
+        caption: "Info",
+        color: Colors.blue,
+        icon: Icons.arrow_forward_ios_sharp,
+        onTap: (){
+        Get.offAll(() => DetailPage(id: post.id.toString(),));
+          }
       )
     ],
   );
